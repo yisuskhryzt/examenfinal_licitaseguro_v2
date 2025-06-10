@@ -36,7 +36,7 @@ const Licitaciones = () => {
     }
 
     setLoading(true);
-    setCurrentPage(1); // Reset pagination when fetching new data
+    setCurrentPage(1);
     try {
       const fechaFormateada = formatFecha(fecha);
       const url = `https://api.mercadopublico.cl/servicios/v1/publico/licitaciones.json?fecha=${fechaFormateada}&estado=${estado}&ticket=${API_KEY}`;
@@ -75,7 +75,7 @@ const Licitaciones = () => {
   const endIndex = startIndex + itemsPerPage;
   const currentLicitaciones = licitaciones.slice(startIndex, endIndex);
 
-  // Generar números de página (máximo 5)
+  // Generar números de página (máximo 5) para que no se desborde el sitio con numeros.
   const getPageNumbers = () => {
     const pages = [];
     const maxPages = 5;
